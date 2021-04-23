@@ -1,0 +1,504 @@
+//**     styles import     **//
+@import 'vars'
+@import 'libs'
+@import 'fonts'
+@import 'keyframes'
+
+//** general styles start **//
+
+body
+	overflow-x: hidden
+	font-size: 16px
+	min-width: 320px
+	font-family: "Raleway", Arial, Helvetica, sans-serif
+	line-height: 1.75
+	opacity: 1
+.ishome
+	.site-header
+		min-height: 700px
+		height: 100vh
+		background-color: $dark
+		.top-line
+			position: absolute
+			padding: 40px 0 0 0
+			top: 0
+			left: 0
+			z-index: 1
+			width: 100%
+			box-sizing: border-box
+
+input, textarea, .selectize-control.single .selectize-input.input-active, .selectize-input, .selectize-input.full
+	background-color: transparent
+	border: 1px solid rgba(#000, .1)
+	border-bottom: 2px solid rgba(#000, .1)
+	border-radius: 2px
+	padding: 8px 16px
+	outline: none
+	display: inline-block
+	color: #333
+
+.selectize-control.single .selectize-input.input-active, .selectize-input, .selectize-input.full
+	color: #fff
+	padding: 10px 22px
+
+.selectize-input.dropdown-active::before
+	display: none
+
+section, header
+	position: relative
+	background-size: cover
+	background-position: center
+
+.h1, .h2, .h3, .h4
+	text-transform: uppercase
+	line-height: 1.4
+
+.button
+	display: inline-block
+	border: none
+	color: #fff
+	text-decoration: none
+	background-color: $accent
+	padding: 16px 45px
+	font-size: 13px
+	text-transform: uppercase
+	font-weight: 600
+	letter-spacing: 3px
+	border-radius: 2px
+	text-align: center
+	position: relative
+	outline: none
+	transition: background-color .1s ease
+	cursor: pointer
+	&::after
+		transition: background-color .2s ease
+		position: absolute
+		content: ''
+		height: 4px
+		bottom: 0
+		width: 100%
+		background-color: darken($accent, 50%)
+		opacity: .18
+		border-bottom-left-radius: 2px
+		border-bottom-right-radius: 2px
+		left: 0
+	&:focus, &:hover
+		text-decoration: none
+		color: #fff
+	&:hover
+		background-color: lighten($accent, 5%)
+		&::after
+			opacity: .22
+	&:active
+		background-color: darken($accent, 5%)
+		&::after
+			opacity: .32
+	&.button-white
+		background-color: #fff
+		color: #444
+		&::after
+			background-color: rgba(#000, .6)
+		&:hover
+			&::after
+				background-color: rgba(#000, .2)
+		&:active
+			&::after
+				background-color: rgba(#000, .4)
+section
+	background-color: #ffffff
+	&.inverse
+		color: #fff
+		background-color: $dark
+		&.s-call
+			background-color: #fff
+	.h2
+		font-size: 30px
+		font-weight: 900
+		color: $accent
+		span
+			color: #fff
+
+.soc
+	margin: auto
+	ul, li
+	 margin: 0
+	 padding: 0
+	 list-style-type: none
+	a
+		color: #2c2c2c
+		font-size: 17px
+		text-decoration: none
+		display: block
+		background-color: rgba(#ffffff, .2)
+		height: 38px
+		width: 38px
+		text-align: center
+		line-height: 38px
+		margin: 18px 0
+		border-radius: 10em
+		transition: background-color .25s ease
+		&:hover
+			background-color: rgba(#ffffff, .4)
+
+$colors: $blue, $red, $accent
+@for $i from 1 through length($colors)
+	.carousel-services .owl-item:nth-child(#{length($colors)}n+#{$i})
+		background-color: nth($colors, $i)
+
+.s
+	&-king, &-review, &-partners
+		padding: 5% 0
+	&-king
+		p
+			margin: 30px 0
+			font-size: 18px
+	&-call
+		background-size: contain
+		background-repeat: no-repeat
+		background-position: 25%
+		&::before
+			content: ""
+			width: 50%
+			right: 0
+			height: 100%
+			position: absolute
+			background-color: rgba($accent, .92)
+.section-overlay
+	&::before
+		content: ""
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+		background-color: $over
+		opacity: .92
+
+//** general styles end **//
+
+
+//** section styles start **//
+
+/**
+ * site-header start
+ */
+.logo
+	width: 125px
+	margin: 0 0 0 45px
+	height: auto
+.phone
+	position: absolute
+	top: 44px
+	right: 85px
+	font-family: "FiraSans"
+	color: #ffffff
+	font-size: 22px
+	white-space: nowrap
+	.fa
+		color: #555555
+		font-size: 22px
+		margin: 0 3px 0 0
+.mburger
+	position: absolute
+	top: 34px
+	right: 0
+	--mb-bar-spacing: 8px
+	--mb-bar-height: 2px
+	b
+		background-color: #ffffff
+
+
+.mm-navbar
+	padding: 35px 0 20px 0
+	border-bottom: none
+	&__title
+		img
+			width: 128px
+			height: auto
+.mm-listview
+	> li
+		> a
+			padding: 20px 14% 0 14%
+			transition: color .25s ease
+			&:hover
+				color: $accent
+				&::before
+					color: $accent
+			&::before
+				content: "\f219"
+				font-family: "fontawesome"
+				margin: 0 8px 0 0
+				text-decoration: none
+				font-size: 12px
+				color: #ffffff
+				transition: color .25s ease
+.mm-listitem_selected > .mm-listitem__text
+	background: transparent
+.mm-listview > li.active
+	&>a
+		color: $accent
+.mm-listitem::after
+	border: none
+.mm-listitem
+	&_selected
+		color: $accent
+.header-flex
+	display: flex
+	height: 100%
+	position: relative
+	top: 0
+.flex-center
+	margin: auto
+.header-composition
+	text-align: center
+	position: relative
+	color: #ffffff
+	> p
+		margin-top: 40px
+	.button
+		margin: 25px 0 0 0
+.welcome
+	p
+		text-transform: uppercase
+		display: flex
+		align-items: center
+		white-space: nowrap
+		margin: 0 0 -10px 0
+		span
+			font-size: 14px
+			margin: 0 10px
+		&::before, &::after
+			content: ''
+			height: 1px
+			width: 100%
+			position: relative
+			background-color: #ffffff
+			display: inline-block
+	.h1
+		font-weight: 100
+		text-transform: uppercase
+		font-size: 70px
+		white-space: nowrap
+		margin: 0
+		line-height: 1.6
+		border-bottom: 1px solid #ffffff
+	strong
+		font-size: 17px
+		text-transform: uppercase
+		display: block
+		margin: 25px
+		.fa
+			margin: 0 10px 0 0
+			font-size: 12px
+			color: #555555
+			&:last-child
+				margin: 0 0 0 10px
+.header-social
+	position: absolute
+	top: 0
+	display: flex
+	right: 0
+	height: 100%
+	border-left: rgba(#ffffff, .1) 1px solid
+	padding: 0 12.5px
+.header-contacts
+	position: absolute
+	bottom: 0
+	left: 0
+	width: 100%
+	box-sizing: border-box
+	border-top: rgba(#ffffff, .15) 1px solid
+	padding: 12.5px 0
+	background-color: rgba(#151515, .15)
+	color: #ffffff
+	.fa
+		margin: 0 5px 0 0
+		color: #555555
+	.phone-h
+		font-family: "FiraSans"
+		text-align: center
+/**
+ * site-header end
+ */
+
+/**
+ * s-services start
+ */
+.carousel-services
+	background-color: $dark
+	.carousel-logo
+		text-align: center
+		img
+			width: 100px
+			height: auto
+			display: inline-block
+	&-content
+		position: relative
+		padding: 60px 10%
+	&-composition
+		margin: auto
+		text-align: center
+		width: 100%
+		.h3
+			text-transform: uppercase
+			font-weight: 900
+			font-size: 28px
+			margin: 5px 0 20px 0
+			span
+				font-size: 18px
+				font-weight: 300
+				display: block
+	&-list
+		margin: 0
+		padding: 0
+		list-style-type: none
+		margin-bottom: 25px
+		li
+			padding: 9px
+			border-bottom: 1px solid rgba(#000, .12)
+			&:last-child
+				border-bottom: none
+			strong
+				font-weight: 800
+				font-family: 'FiraSans', sans-serif
+				color: #4a4a4a
+			.fa
+				font-size: 14px
+	&-item
+		color: #fff
+		font-size: 18px
+		font-weight: 300
+		position: relative
+		display: flex
+		flex-flow: column-reverse
+		&:hover
+			.carousel-services-image
+				opacity: 1
+	.owl-item
+		&:nth-child(2n+2)
+			.carousel-services-item
+				flex-flow: column
+	&-image
+		background-size: cover
+		background-position: center
+		transition: opacity .5s ease
+		opacity: .8
+.owl-carousel
+	.owl-item
+		backface-visibility: inherit
+	.owl-nav
+		position: absolute
+		top: 0
+		width: 100%
+		& > div
+			width: 64px
+			height: 64px
+			background-color: #fff
+			color: $dark
+			position: absolute
+			text-align: center
+			line-height: 64px
+			font-size: 26px
+			&.owl-prev
+				left: 0
+			&.owl-next
+				right: 0
+/**
+ * s-services end
+ */
+
+
+/**
+ * s-gallery start
+ */
+.fotorama
+	background-color: rgba($dark, .4)
+.fotorama
+	&__nav
+		&::before, &::after
+			display: none
+		&-wrap
+			position: absolute
+			bottom: 15px
+			padding: 0 30px
+			width: 100%
+	&__thumb
+		border: 4px solid #fff
+		box-sizing: border-box
+		transition: border-color .5s ease
+		&-border
+			border-color: #3d3c3c
+	&__arr-
+		&-next, &-prev
+			&::before
+				font-size: 32px
+				font-family: "fontawesome"
+		&-next
+			&::before
+				content: "\f105"
+		&-prev
+			left: 25px
+			&::before
+				content: "\f104"
+	&__active
+		.fotorama__thumb
+			border-color: #3d3c3c
+/**
+ * s-gallery end
+ */
+
+
+/**
+ * s-call start
+ */
+.callback
+	padding: 15% 0
+	position: relative
+	&-logo
+		img
+			width: 100px
+			height: auto
+	.formhead
+		color: #fff
+		font-size: 30px
+		margin: 0
+	p
+		margin-top: 0
+	input, textarea, .selectize-input
+		color: #fff
+		margin-top: 17px
+		width: 100%
+		font-size: 16px
+		&::placeholder
+			color: #fff
+			opacity: 1
+	.button
+		margin-top: 40px
+.success
+	display: none
+	position: absolute
+	top: 0
+	left: 0
+	right: 0
+	bottom: 0
+	text-transform: uppercase
+	font-weight: bold
+	z-index: 10
+	span
+		margin: auto
+	& ~ *
+		transition: all .5s ease
+	&.active
+		& ~ *
+			opacity: .5
+			filter: blur(10px)
+/**
+ * s-call end
+ */
+
+//** section styles end **//
+
+
+//**     media rules    **//
+
+@import 'media'
